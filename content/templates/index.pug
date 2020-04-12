@@ -1,0 +1,17 @@
+extends layouts/default.pug
+
+include ./includes/core/header.pug
+
+block head
+  title Welcome to Radio Roulette!
+
+block content
+  +header('/')
+  .content.site-width
+    .homepage-intro
+      figure.homepage-intro__logo
+        img(src="/images/branding/logo.svg")
+      .homepage-intro__text
+        p Welcome to radioroulette.uk! The game is simple - spin the wheel to discover a random radio station from around the UK. Who knows, it could become the new soundtrack to your day.
+
+    canvas.wheel-canvas

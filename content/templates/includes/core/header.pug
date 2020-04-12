@@ -1,0 +1,21 @@
+mixin header(current)
+  header.header
+    .header__inner.site-width
+      .header__left
+        .header__counter.counter-app#counter-app
+          .counter__counter(data-counter="today")
+            .counter__label Today
+            .counter__display 1,234
+          .counter__counter(data-counter="all-time")
+            .counter__label All Time
+            .counter__display 1,234,456
+
+      .header__right
+        nav.header__nav
+          ul.header__nav-menu
+            li.header__nav-item
+              a(href="/" title="Home" class=`header__nav-link header__nav-link--${current !== '/' ? 'in' : ''}active`) Game
+            li.header__nav-item
+              a(href="/about" title="About" class=`header__nav-link header__nav-link--${current !== '/about' ? 'in' : ''}active`) About
+            li.header__nav-item.header__nav-item--share
+              a(href="#" title="share" class="btn btn--sm btn--solid-purple") Share

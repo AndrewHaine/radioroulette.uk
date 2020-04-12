@@ -1,0 +1,41 @@
+.counter-app
+  display: flex
+
+.counter__counter
+  display: flex
+  align-items: center
+
+  &[data-counter="today"]
+    display: none
+
+@include respond(500px)
+  .counter__counter[data-counter="today"]
+    display: flex
+    margin-right: 10px
+
+  @include respond(768px)
+  .counter__counter[data-counter="today"]
+    margin-right: 27px
+
+.counter__label
+  margin-right: 10px
+  font-weight: 400
+  font-size: 15px
+
+@include respond(768px)
+  .counter__label
+    margin-right: 20px
+    font-size: 18px
+
+.counter__display
+  padding: 6px 10px
+  min-width: 70px
+  border-radius: 50px
+  background-color: $color__purple--dark
+  text-align: center
+  font-weight: 700
+
+@include respond(768px)
+  .counter__display
+    min-width: 120px
+    font-size: 16px

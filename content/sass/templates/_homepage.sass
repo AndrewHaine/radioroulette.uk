@@ -1,0 +1,33 @@
+.homepage-intro
+  position: relative
+  display: block
+  margin: 30px auto 40px
+  width: 80%
+  max-width: 680px
+  text-align: center
+
+@include respond(768px)
+  .homepage-intro
+    margin-top: 50px
+
+.homepage-intro__logo
+  display: inline-block
+  width: 80px
+  margin-bottom: 20px
+
+@include respond(560px)
+  .homepage-intro__logo
+    width: 110px
+
+@include respond(768px)
+  .homepage-intro__logo
+    width: 130px
+    margin-bottom: 25px
+
+.homepage-intro__text
+  font-size: 1.4rem
+  font-weight: 300
+
+@include respond(768px)
+  .homepage-intro__text
+    font-size: 1.625rem

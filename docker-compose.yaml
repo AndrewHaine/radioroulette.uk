@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  www:
+    command: "npm start"
+    container_name: radioroulette_node
+    image: node:13.12.0-alpine
+    ports:
+      - 8081:8081
+    volumes:
+      - ./:/home/node/app
+      - ~/.localhost-ssl:/etc/ssl
+    working_dir: /home/node/app
+

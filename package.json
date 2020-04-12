@@ -1,0 +1,73 @@
+{
+  "name": "radioroulette",
+  "version": "1.0.0",
+  "description": "Radio Roulette application",
+  "main": "scripts/start.js",
+  "scripts": {
+    "start": "nodemon ./scripts/start.js",
+    "prod": "webpack --progress -p --config webpack/webpack.prod.babel.js",
+    "dev": "webpack-dev-server --config webpack/webpack.dev.babel.js"
+  },
+  "author": "Andrew Haine",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/register": "^7.9.0",
+    "csv-parse": "^4.8.8",
+    "csv-stringify": "^5.3.6",
+    "csv-writer": "^1.6.0",
+    "dotenv": "^8.2.0",
+    "koa": "^2.11.0",
+    "koa-pug": "^4.0.3",
+    "koa-static": "^5.0.0",
+    "nodemon": "^2.0.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.7.5",
+    "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-hot-loader": "^1.4.4",
+    "css-loader": "^3.4.2",
+    "cssnano": "^4.1.10",
+    "file-loader": "^6.0.0",
+    "get-image-colors": "^2.0.0",
+    "image-webpack-loader": "^6.0.0",
+    "json-loader": "^0.5.7",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.1",
+    "postcss": "^7.0.27",
+    "postcss-loader": "^3.0.0",
+    "postcss-reporter": "^6.0.1",
+    "reset-css": "^5.0.1",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.1.3",
+    "url-loader": "^4.0.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "content/*",
+      "webpack/*",
+      "postcss.config.js",
+      "package*"
+    ]
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {},
+      "cssnano": {},
+      "postcss-reporter": []
+    }
+  },
+  "browsersList": [
+    "> 1%",
+    "IE >= 11",
+    "last 2 versions",
+    "Firefox ESR"
+  ]
+}
