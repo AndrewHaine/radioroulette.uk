@@ -14,6 +14,7 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@babel/register": "^7.9.0",
+    "axios": "^0.19.2",
     "csv-parse": "^4.8.8",
     "csv-stringify": "^5.3.6",
     "csv-writer": "^1.6.0",
@@ -21,9 +22,13 @@
     "koa": "^2.11.0",
     "koa-pug": "^4.0.3",
     "koa-static": "^5.0.0",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.9.4",
+    "@hot-loader/react-dom": "^16.13.0",
     "autoprefixer": "^9.7.5",
     "babel-loader": "^8.1.0",
     "babel-preset-env": "^1.7.0",
@@ -31,6 +36,7 @@
     "css-hot-loader": "^1.4.4",
     "css-loader": "^3.4.2",
     "cssnano": "^4.1.10",
+    "eslint-plugin-react": "^7.19.0",
     "file-loader": "^6.0.0",
     "get-image-colors": "^2.0.0",
     "image-webpack-loader": "^6.0.0",
@@ -40,6 +46,7 @@
     "postcss": "^7.0.27",
     "postcss-loader": "^3.0.0",
     "postcss-reporter": "^6.0.1",
+    "react-hot-loader": "^4.12.20",
     "reset-css": "^5.0.1",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.1.3",

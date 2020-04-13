@@ -5,9 +5,6 @@ const _toRadians = deg => {
 }
 
 const initWheelCanvas = () => {
-  const canvas = document.querySelector('canvas.wheel-canvas');
-
-  if(!canvas) return;
 
   canvas.width="1008";
   canvas.height="1008";
@@ -53,8 +50,6 @@ const drawSegment = (ctx, start, end, contentAngle, color, img) => {
 
   const radius = 500;
 
-  console.log(img);
-
   const [cx, cy] = [504, 504];
 
   ctx.fillStyle = color;
@@ -74,4 +69,5 @@ const drawSegment = (ctx, start, end, contentAngle, color, img) => {
   ctx.restore();
 }
 
+export { loadWheel };
 export default initWheelCanvas;

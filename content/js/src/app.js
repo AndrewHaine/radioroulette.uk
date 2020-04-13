@@ -1,3 +1,1 @@
-import initWheelCanvas from './wheel/canvas';
-
-initWheelCanvas();
+import "./wheel/index.jsx";
