@@ -59,19 +59,19 @@ const drawSegment = (ctx, start, end, contentAngle, color, img) => {
 
   ctx.fillStyle = color;
 
-  ctx.save();
   ctx.beginPath();
+  ctx.save();
   ctx.moveTo(cx, cy);
   ctx.arc(cx, cy, radius, _toRadians(start), _toRadians(end));
   ctx.lineTo(cx, cy);
   ctx.fill();
+  ctx.closePath();
   ctx.clip();
   ctx.rotate(_toRadians(contentAngle));
   ctx.drawImage(img.imgEl, img.x, img.y, img.width, img.height);
   ctx.rotate(_toRadians((1 - contentAngle)));
   ctx.stroke();
   ctx.restore();
-  ctx.closePath();
 }
 
 export default initWheelCanvas;
