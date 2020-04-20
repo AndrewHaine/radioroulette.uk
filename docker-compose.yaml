@@ -11,4 +11,13 @@ services:
       - ./:/home/node/app
       - ~/.localhost-ssl:/etc/ssl
     working_dir: /home/node/app
-
+  mongodb:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: radioroulette
+    ports:
+      - 27017:27017
+    volumes:
+      - ./docker/data/mongodb:/data/db

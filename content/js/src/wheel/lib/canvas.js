@@ -17,14 +17,12 @@ const initWheelCanvas = () => {
 
 const loadWheel = (ctx, segments) => {
 
-  ctx.lineWidth = 16;
-  ctx.strokeStyle = '#151515';
-
   segments.forEach(segment => {
     const {
       geometry,
       color,
-      image
+      image,
+      name
     } = segment;
 
     const imageGeometry = geometry[image ? "stationImage" : "defaultImage"];
@@ -35,24 +33,31 @@ const loadWheel = (ctx, segments) => {
       contentAngle
     } = geometry;
 
-    const imageUrl = image || '/images/components/rr-cover.png';
+    if(image !== 'text') {
+      const imageUrl = image || '/content/images/components/rr-cover.png';
 
-    const imgEl = new Image();
-    imgEl.onload = () => {
-      drawSegment(ctx, from, to, contentAngle, color, {imgEl, ...imageGeometry});
+      const imgEl = new Image();
+      imgEl.onload = () => {
+        drawSegment(ctx, from, to, contentAngle, color, {imgEl, ...imageGeometry});
+      }
+      imgEl.src = imageUrl;
+    } else {
+      drawSegment(ctx, from, to, contentAngle, color, {imgEl: null, ...imageGeometry}, name);
     }
-    imgEl.src = imageUrl;
-
   });
 }
 
-const drawSegment = (ctx, start, end, contentAngle, color, img) => {
+const drawSegment = (ctx, start, end, contentAngle, color, img, text) => {
 
   const radius = 500;
 
   const [cx, cy] = [504, 504];
 
   ctx.fillStyle = color;
+  ctx.lineWidth = 16;
+  ctx.textAlign = "center";
+  ctx.font = "45px Saira Condensed,sans-serif";
+  ctx.strokeStyle = '#303135';
 
   ctx.beginPath();
   ctx.save();
@@ -63,10 +68,15 @@ const drawSegment = (ctx, start, end, contentAngle, color, img) => {
   ctx.closePath();
   ctx.clip();
   ctx.rotate(_toRadians(contentAngle));
-  ctx.drawImage(img.imgEl, img.x, img.y, img.width, img.height);
+  if(img.imgEl) {
+    ctx.drawImage(img.imgEl, img.x, img.y, img.width, img.height);
+  } else {
+    ctx.fillStyle = "#ffffff";
+    ctx.fillText(text, (img.x + 80), (img.y + 30), (img.width + 60));
+  }
   ctx.rotate(_toRadians((1 - contentAngle)));
-  ctx.stroke();
   ctx.restore();
+  ctx.stroke();
 }
 
 export { loadWheel };

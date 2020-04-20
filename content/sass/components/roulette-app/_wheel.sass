@@ -1,26 +1,74 @@
 @keyframes spin
   0%
-    transform: none
+    transform: rotate(0)
 
   100%
-    transform: rotate(1turn)
+    transform: rotate(360deg)
+
+@keyframes spin-down
+  0%
+    transform: rotate(0)
+
+  100%
+    transform: rotate(967.5deg)
+
+.wheel-page__content
+  display: flex
+  flex-direction: column
+  min-height: calc(100vh - 80px)
+
+#wheel-app
+  display: flex
+  flex-direction: column
+  flex-grow: 1
+  flex-shrink: 0
 
 .wheel-application
   position: relative
-  display: block
-  margin-top: 80px
+  display: flex
+  flex-grow: 1
+  flex-direction: column
+  align-items: center
+  justify-content: space-between
+  height: 100%
+  flex-grow: 1
 
 .wheel-application__actions
   position: relative
   display: flex
   justify-content: center
-  margin: 50px 0
+  margin: 0 0 50px
+
+.wheel-application__wheel
+  position: relative
+  display: block
+  width: 150%
+  height: 350px
+  overflow: hidden
+
+@include respond(650px)
+  .wheel-application__wheel
+    width: 100%
+    height: 600px
+
+@include respond(980px)
+  .wheel-application__wheel
+    height: 650px
 
 .wheel-canvas
   display: block
   background-color: $color__grey--dark
-  border: 10px solid $color__grey--dark
+  border: 40px solid $color__purple--light
   border-radius: 50%
   width: 90%
   max-width: 1000px
   margin: 0 auto
+
+  &.spinning
+    transform: rotate(0)
+    animation: spin 0.4s linear infinite
+
+  &.spun
+    transform: rotate(0)
+    animation: spin-down 4s cubic-bezier(0,0,.1,1)
+    animation-fill-mode: forwards

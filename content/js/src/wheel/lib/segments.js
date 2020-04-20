@@ -1,4 +1,4 @@
-export default [
+const segments = [
   {
     "geometry": {
       "from": 0,
@@ -160,3 +160,5 @@ export default [
     "color": "#151515"
   }
 ];
+
+export default segments;

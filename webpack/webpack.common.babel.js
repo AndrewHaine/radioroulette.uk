@@ -56,7 +56,7 @@ export default {
             loader: 'url-loader',
             options: {
               limit: 5000,
-              publicPath: '/images/',
+              publicPath: '/content/images/',
               name: '[path][name].[ext]'
             }
           },
