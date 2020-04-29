@@ -6,3 +6,10 @@ exports.index = async (ctx) => {
     title
   });
 }
+
+exports.about = async (ctx) => {
+  const { template, title } = templates['/about'];
+  await ctx.render(template, {
+    title
+  });
+}

@@ -7,7 +7,11 @@ import ReactDOM from 'react-dom';
 
 import App from './components/App.jsx';
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('wheel-app')
-);
+const wheelEl = document.getElementById('wheel-app');
+
+if(wheelEl) {
+  ReactDOM.render(
+    <App />,
+    wheelEl
+  );
+}

@@ -1,0 +1,96 @@
+body
+  display: flex
+  flex-direction: column
+  min-height: 100vh
+
+.body-content
+  flex-grow: 1
+
+.content
+  font-size: 1.1rem
+  letter-spacing: 0.5
+
+  a
+    position: relative
+    color: $color__white
+
+  h1,
+  h2
+    position: relative
+    display: block
+    width: 100%
+    padding-bottom: 0.75rem
+    margin-bottom: 1.3rem
+    font-size: 2rem
+    font-weight: bold
+    letter-spacing: 1.1px
+
+    &::after
+      position: absolute
+      left: 0
+      bottom: 0
+      width: 80%
+      height: 1px
+      opacity: .2
+      content: ''
+      background: white
+
+  h2
+    font-size: 1.7rem
+
+  p
+    display: block
+    position: relative
+    line-height: 1.2
+
+    &:not(:last-child)
+      margin-bottom: 1.5em
+
+  .extra-spacing
+    margin: 30px 0
+
+  .center
+    text-align: center
+
+  ul
+    margin: 1em 0 2.5rem
+    padding: 0 1em
+    list-style: disc
+
+    li
+      &:not(:last-child)
+        margin-bottom: 5px
+
+
+@include respond(768px)
+  .content
+    font-size: 1.24rem
+
+    h1
+      font-size: 2.8rem
+
+    h2
+      font-size: 2rem
+
+    .extra-spacing
+      margin: 50px 0
+
+@include respond(980px)
+  .content
+    h1
+      font-size: 3.1rem
+
+
+
+.content-page__content
+  width: calc(100vw - 40px)
+  max-width: 690px
+  margin: 30px auto
+
+@include respond(560px)
+  .content-page__content
+    margin-top: 60px
+
+  @include respond(798px)
+  .content-page__content
+    margin-top: 90px

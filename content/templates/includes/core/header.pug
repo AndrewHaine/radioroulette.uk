@@ -9,13 +9,10 @@ mixin header(current)
           .counter__counter(data-counter="allTime")
             .counter__label All Time
             .counter__display(data-current-value="0") 0
-
       .header__right
         nav.header__nav
           ul.header__nav-menu
             li.header__nav-item
               a(href="/" title="Home" class=`header__nav-link header__nav-link--${current !== '/' ? 'in' : ''}active`) Game
-            li.header__nav-item
-              a(href="/about" title="About" class=`header__nav-link header__nav-link--${current !== '/about' ? 'in' : ''}active`) About
             li.header__nav-item.header__nav-item--share
-              a(href="#" title="share" class="btn btn--sm btn--solid-purple") Share
+              a(href="/about" title="About" class=`btn btn--sm btn--solid-purple`) About

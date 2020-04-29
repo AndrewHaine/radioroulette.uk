@@ -14,5 +14,6 @@ router.post('/api/v1/newSpin', API.newSpin);
 
 // Website routes
 router.get('/', Renderer.index);
+router.get('/about', Renderer.about);
 
 module.exports = router;
