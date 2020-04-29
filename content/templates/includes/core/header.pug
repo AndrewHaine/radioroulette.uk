@@ -5,10 +5,10 @@ mixin header(current)
         .header__counter.counter-app#counter-app
           .counter__counter(data-counter="today")
             .counter__label Today
-            .counter__display 1,234
-          .counter__counter(data-counter="all-time")
+            .counter__display(data-current-value="0") 0
+          .counter__counter(data-counter="allTime")
             .counter__label All Time
-            .counter__display 1,234,456
+            .counter__display(data-current-value="0") 0
 
       .header__right
         nav.header__nav

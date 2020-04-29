@@ -1,5 +1,7 @@
 import segments from './segments';
 
+let centreLogo = null;
+
 const _toRadians = deg => {
   return deg * (Math.PI / 180);
 }
@@ -16,6 +18,8 @@ const initWheelCanvas = () => {
 }
 
 const loadWheel = (ctx, segments) => {
+  centreLogo = new Image();
+  centreLogo.src = "/content/images/branding/logo.png";
 
   segments.forEach(segment => {
     const {
@@ -77,6 +81,14 @@ const drawSegment = (ctx, start, end, contentAngle, color, img, text) => {
   ctx.rotate(_toRadians((1 - contentAngle)));
   ctx.restore();
   ctx.stroke();
+
+  ctx.fillStyle = '#303135';
+
+  ctx.beginPath();
+  ctx.moveTo(cx, cy);
+  ctx.arc(cx, cy, 75, 0, 2 * Math.PI);
+  ctx.fill();
+  ctx.drawImage(centreLogo, 455, 455, 98, 98);
 }
 
 export { loadWheel };

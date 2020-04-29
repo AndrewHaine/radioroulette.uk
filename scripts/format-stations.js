@@ -1,15 +1,25 @@
 const path = require('path');
 const fs = require('fs');
-const csvParse = require('csv-parse');
+const csvParse = require('csv-parse/lib/sync');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const getColors = require('get-image-colors');
 
 const STATIONS_FILE = path.join(__dirname, '../data/stations/stations.csv');
 
-const readStream = fs.createReadStream(STATIONS_FILE);
+let csv = csvParse(fs.readFileSync(STATIONS_FILE), {
+  columns: true
+});
 
-let csv = [];
-const csvStream = csvParse({ columns: true });
+const getRowColor = async (row) => {
+  if(!!row['Image']) {
+    const imageFile = path.join(__dirname, '..' + row['Image']);
+    const colors = await getColors(imageFile, { count: 1 });
+
+    row['Color'] = colors[0].css() || 'rgb(255,255,255)';
+
+    return row;
+  }
+};
 
 const csvWriter = createCsvWriter({
   path: STATIONS_FILE,
@@ -20,38 +30,15 @@ const csvWriter = createCsvWriter({
     {id: 'Region', title: 'Region'},
     {id: 'Station_Type', title: 'Station_Type'},
     {id: 'Image', title: 'Image'},
-    {id: 'Color', title: 'Color'}
+    {id: 'Color', title: 'Color'},
+    {id: 'Description', title: 'Description'}
   ]
 });
 
-csvStream.on("data", async (row) => {
-
-  // Get the most promenant colour from the image file
-  if(!!row['Image']) {
-    const imageBuffer = fs.readFileSync(path.join(__dirname, `../${row['Image']}`));
-    try {
-      const colors = await getColors(imageBuffer, 'image/png');
-      row['Color'] = colors[1].css();
-    } catch (err) {
-      console.log(`Error parsing the image color for ${row['Image']}`, err, (err && err.stack));
-    }
-  }
-
-  csv.push(row);
-});
-
-csvStream.on('end', () => {
-  csvWriter.writeRecords(csv)
-    .then(() => {
-      console.log('Stations file written successfully!');
-    })
-    .catch(err => {
-      console.error('Error writing CSV: ', err, (err && err.stack));
-    });
-});
-
-try {
-  readStream.pipe(csvStream);
-} catch (err) {
-  console.error('Error parsing CSV', err, (err && err.stack));
+const getRows = async () => {
+  return Promise.all(csv.map(row => getRowColor(row)));
 }
+
+getRows().then(data => {
+  csvWriter.writeRecords(data);
+})

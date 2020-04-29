@@ -7,7 +7,7 @@ export default {
   },
   output: {
     path: path.resolve(__dirname, '../content'),
-    publicPath: '/',
+    publicPath: '/content',
     filename: 'js/dist/[name].js'
   },
   module: {

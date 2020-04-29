@@ -5,6 +5,8 @@ services:
     command: "npm start"
     container_name: radioroulette_node
     image: node:13.12.0-alpine
+    depends_on:
+      - mongodb
     ports:
       - 8081:8081
     volumes:

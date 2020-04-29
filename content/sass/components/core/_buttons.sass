@@ -6,6 +6,7 @@
   border-radius: 200px
   text-decoration: none
   font-family: $font__primary
+  text-align: center
   user-select: none
   cursor: pointer
   transition: all .2s ease-out
@@ -41,3 +42,10 @@
   &:hover
     background: $color__orange
     color: $color__purple--dark
+
+.btn--solid-orange
+  background-color: $color__orange
+  color: $color__white !important
+
+  &:hover
+    background: darken($color__orange, 10)

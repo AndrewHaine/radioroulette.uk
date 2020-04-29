@@ -56,6 +56,7 @@
     height: 650px
 
 .wheel-canvas
+  position: relative
   display: block
   background-color: $color__grey--dark
   border: 40px solid $color__purple--light
@@ -72,3 +73,16 @@
     transform: rotate(0)
     animation: spin-down 4s cubic-bezier(0,0,.1,1)
     animation-fill-mode: forwards
+
+.wheel-canvas__outer
+  position: relative
+
+  &::before
+    position: absolute
+    display: block
+    top: 50%
+    left: 50%
+    width: 7.5%
+    height: 7.5%
+    content: ""
+    background: $color__grey--dark
