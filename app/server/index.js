@@ -23,9 +23,7 @@ app.use(mongoose({
   schemas: Schemas
 }));
 
-app.use(cors({
-  credentials: true
-}));
+app.use(cors());
 
 app.use(bodyParser());
 
