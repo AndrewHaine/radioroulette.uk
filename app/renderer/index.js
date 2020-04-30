@@ -23,3 +23,11 @@ exports.privacy = async (ctx) => {
     description
   });
 }
+
+exports.notFound = async (ctx) => {
+  const { template, title, description } = templates['/404'];
+  await ctx.render(template, {
+    title,
+    description
+  });
+}

@@ -1,0 +1,16 @@
+extends layouts/default.pug
+
+include ./includes/core/header.pug
+
+block head
+  title=title
+
+block content
+  +header('/about')
+  .content.content-page__content
+    .center
+      h1.center Page not found
+      p I'm not sure what page you're looking for but it ain't here no more! <br /> Head back to the homepage and have some fun spinning the wheel.
+      .extra-spacing
+        .center
+          a.btn.btn--lg.btn--hollow-orange(href="/") Spin the wheel

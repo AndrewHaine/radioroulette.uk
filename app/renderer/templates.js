@@ -13,5 +13,10 @@ module.exports = {
     'template': 'privacy',
     'title': 'Radio Roulette | Privacy Policy',
     'description': "Radio Roulette Privacy Policy"
+  },
+  '/404': {
+    'template': '404',
+    'title': 'Page not found | Radio Roulette',
+    'description': "This page no longer exists or never existed in the first place."
   }
 }

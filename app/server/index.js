@@ -10,6 +10,7 @@ const cors = require('@koa/cors');
 const bodyParser = require('koa-bodyparser');
 
 const Router = require('./router');
+const Renderer = require('../renderer');
 const Schemas = require('../database/schemas');
 
 const app = new Koa();
@@ -31,6 +32,18 @@ const pug = new Pug({
   viewPath: path.resolve(__dirname, '../../content/templates'),
   locals: { currentTime: new Date() },
   app
+});
+
+app.use(async (ctx, next) => {
+  try {
+    await next()
+
+    if (ctx.status === 404) ctx.throw(404)
+  } catch (err) {
+    console.error(err);
+    ctx.response.status = ctx.status;
+    return Renderer.notFound(ctx);
+  }
 });
 
 app.use(Router.routes());
