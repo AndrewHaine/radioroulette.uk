@@ -3,7 +3,8 @@ import MiniCSSExtractPlugin from 'mini-css-extract-plugin';
 
 export default {
   entry: {
-    app: path.resolve(__dirname, '../content/bundles/app.js')
+    frontend: path.resolve(__dirname, '../content/bundles/app.js'),
+    wheel: path.resolve(__dirname, '../content/bundles/wheel.js')
   },
   output: {
     path: path.resolve(__dirname, '../content'),

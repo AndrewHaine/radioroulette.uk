@@ -9,9 +9,7 @@ import App from './components/App.jsx';
 
 const wheelEl = document.getElementById('wheel-app');
 
-if(wheelEl) {
-  ReactDOM.render(
-    <App />,
-    wheelEl
-  );
-}
+ReactDOM.render(
+  <App />,
+  wheelEl
+);

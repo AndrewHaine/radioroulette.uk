@@ -15,6 +15,7 @@ const App = () => {
   const [wheelData, setWheelData] = useState([]);
   const [spinningStatus, setSpinningStatus] = useState(null);
   const [buttonDisabled, setButtonDisabled] = useState(false);
+  const [canvasLoaded, setCanvasLoaded] = useState(false);
 
   const [stationsModalIsOpen, setStationsModalIsOpen] = useState(false);
 
@@ -27,6 +28,10 @@ const App = () => {
     setCtx(canvasContext);
 
     loadWheel(canvasContext, defaultSegments);
+
+    setCanvasLoaded(true);
+
+    document.querySelector('#wheel-app').classList.remove('wheel-app-loading');
   }, []);
 
   useEffect(() => {
@@ -42,7 +47,6 @@ const App = () => {
       }));
     } else {
       loadWheel(ctx, defaultSegments.map(segment => {
-        // defaultSegments is being overridden with the wheel data??
         segment['image'] = null;
         return segment;
       }));
@@ -85,7 +89,7 @@ const App = () => {
         <div className='wheel-application__wheel'>
           <div className="wheel-application__wheel-container">
             <span className="wheel-canvas__outer">
-              <canvas className={`wheel-canvas ${spinningStatus}`} ref={canvasRef} />
+              <canvas className={`wheel-canvas ${spinningStatus} wheel-canvas--load${canvasLoaded ? 'ed' : 'ing'}`} ref={canvasRef} />
             </span>
           </div>
         </div>

@@ -1,5 +1,5 @@
-import "./wheel/index.jsx";
 import updateCounts from './frontend/updateCounts';
+import importScript from './frontend/importScript';
 
 document.addEventListener('DOMContentLoaded', () => {
   updateCounts();
@@ -8,4 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // TODO: Replace this with a socket.io connection
   setInterval(window.updateCounts, 7000);
+
+  const wheelEl = document.getElementById('wheel-app');
+
+  if(wheelEl) {
+    importScript('/content/js/dist/wheel.js');
+  }
 });

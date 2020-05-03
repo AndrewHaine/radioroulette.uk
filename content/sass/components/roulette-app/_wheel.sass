@@ -18,10 +18,23 @@
   min-height: calc(100vh - 80px)
 
 #wheel-app
+  position: relative
   display: flex
   flex-direction: column
   flex-grow: 1
   flex-shrink: 0
+
+  &.wheel-app-loading
+    &::before
+      position: absolute
+      top: 200px
+      left: calc(50% - 30px)
+      width: 60px
+      height: 60px
+      content: ""
+      animation: spin .5s infinite linear
+      background: url('/content/images/icons/loader.svg') 50% / contain no-repeat
+
 
 .wheel-application
   position: relative
@@ -56,13 +69,16 @@
 
 .wheel-canvas
   position: relative
-  display: block
+  display: none
   background-color: $color__grey--dark
   border: 40px solid $color__purple--light
   border-radius: 50%
   width: 90%
   max-width: 1000px
   margin: 0 auto
+
+  &--loaded
+    display: block
 
   &.spinning
     transform: rotate(0)
