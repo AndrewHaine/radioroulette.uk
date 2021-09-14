@@ -16,6 +16,6 @@ router.post('/api/v1/newSpin', API.newSpin);
 // Website routes
 router.get('/', Renderer.index);
 router.get('/about', Renderer.about);
-router.get('/privacy', Renderer.privacy);
+router.redirect('/privacy', '/about', 301);
 
 module.exports = router;
