@@ -56,6 +56,9 @@ const App = () => {
   const handleNewClick = e => {
     e.preventDefault();
 
+    // Trigger an even in Fathom
+    window.fathom.trackGoal('GPAG4ZRN', 0);
+
     setButtonDisabled(true);
 
     setWheelData([]);
