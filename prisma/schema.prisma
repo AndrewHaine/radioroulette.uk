@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+  shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+model Station {
+  id String @default(cuid()) @id
+  name String
+  url String
+  frequency String?
+  region String?
+  stationType String?
+  image String
+  color String
+  description String
+  spins Spin[]
+}
+
+model Spin {
+  id String @default(cuid()) @id
+  date DateTime @default(now())
+  station Station @relation(fields: [stationId], references: [id])
+  stationId String
+}

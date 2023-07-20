@@ -6,10 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prisma:import-stations": "node scripts/prisma/importStations.js"
   },
   "dependencies": {
-    "@types/node": "20.4.2",
+    "@prisma/client": "5.0.0",
+    "@types/node": "^20.4.2",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
     "@vercel/postgres": "^0.4.0",
@@ -25,6 +27,9 @@
     "csv-parse": "^5.4.0",
     "csv-stringify": "^6.4.0",
     "csv-writer": "^1.6.0",
-    "get-image-colors": "^4.0.1"
+    "get-image-colors": "^4.0.1",
+    "prisma": "^5.0.0",
+    "ts-node": "^10.9.1",
+    "waait": "^1.0.5"
   }
 }

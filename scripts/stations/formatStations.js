@@ -11,11 +11,11 @@ let csv = parse(fs.readFileSync(STATIONS_FILE), {
 });
 
 const getRowColor = async (row) => {
-  if(!!row['Image']) {
+  if(!!row['image']) {
     const imageFile = path.join(__dirname, '../../public' + row['Image']);
     const colors = await getColors(imageFile, { count: 1 });
 
-    row['Color'] = colors[0].css() || 'rgb(255,255,255)';
+    row['color'] = colors[0].css() || 'rgb(255,255,255)';
 
     return row;
   }

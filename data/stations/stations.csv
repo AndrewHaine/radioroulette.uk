@@ -1,4 +1,4 @@
-Name,URL,Frequency,Region,Station_Type,Image,Color,Description
+name,url,frequency,region,station_type,image,color,description
 Absolute Classic Rock,https://planetradio.co.uk/absolute-classic-rock,,national,national_radio,/images/stations/absolute-rock.png,"rgb(156,77,164)",Rock's greatest hits
 Absolute 20s,https://planetradio.co.uk/absolute-radio-20s/,,national,national_radio,/images/stations/absolute-20s.png,"rgb(164,69,172)",New Music Matters
 Absolute 10s,https://planetradio.co.uk/absolute-radio-10s/,,national,national_radio,/images/stations/absolute-10s.png,"rgb(164,70,170)",Music from the 2010s
