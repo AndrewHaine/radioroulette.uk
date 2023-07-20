@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
-import StyledComponentsRegistry from './registry';
+import StyledWrapper from './styles/StyledWrapper';
+import Header from './components/Header/Header';
+import { BodyContent } from './styles/Layout';
+import Footer from './components/Footer/Footer';
 
 export const metadata: Metadata = {
   title: 'Radio Roulette',
@@ -14,9 +17,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <StyledComponentsRegistry>
-          { children }
-        </StyledComponentsRegistry>
+        <StyledWrapper>
+          <Header />
+          <BodyContent>
+            { children }
+          </BodyContent>
+          <Footer />
+        </StyledWrapper>
       </body>
     </html>
   )

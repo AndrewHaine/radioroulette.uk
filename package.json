@@ -28,7 +28,9 @@
     "csv-stringify": "^6.4.0",
     "csv-writer": "^1.6.0",
     "get-image-colors": "^4.0.1",
+    "polished": "^4.2.2",
     "prisma": "^5.0.0",
+    "styled-reset": "^4.5.1",
     "ts-node": "^10.9.1",
     "waait": "^1.0.5"
   }
