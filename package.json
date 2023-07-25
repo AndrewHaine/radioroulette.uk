@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prisma:import-stations": "node scripts/prisma/importStations.js"
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "5.0.0",
