@@ -4,6 +4,7 @@ import { styled } from 'styled-components';
 import { rgba } from 'polished';
 import { SiteWidth } from '@/app/styles/Layout';
 import Navigation from '../Navigation/Navigation';
+import SpinCounts from '../SpinCounts/SpinCounts';
 
 const StyledHeader = styled.header`
   margin-bottom: 20px;
@@ -23,10 +24,8 @@ export default function Header() {
   return (
     <StyledHeader>
       <HeaderInner>
-        <div></div>
-        <div>
-          <Navigation />
-        </div>
+        <SpinCounts />
+        <Navigation />
       </HeaderInner>
     </StyledHeader>
   )

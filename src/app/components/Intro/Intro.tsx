@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import { styled } from 'styled-components';
 
 const IntroContainer = styled.div`
@@ -18,14 +19,21 @@ const IntroContainer = styled.div`
 const IntroLogo = styled.figure`
   display: inline-block;
   width: 80px;
+  height: 80px;
   margin-bottom: 20px;
 
+  img {
+    height: 100%;
+  }
+
   @media screen and (min-width: 560px) {
-    width: 110px
+    width: 110px;
+    height: 110px;
   }
   
   @media screen and (min-width: 768px) {
     width: 130px;
+    height: 130px;
     margin-bottom: 25px;
   }
 `;
@@ -43,10 +51,10 @@ export default function Intro() {
   return (
     <IntroContainer>
       <IntroLogo>
-        <img src='/images/branding/logo.svg' alt="Radio Roulette Logo" />
+        <Image src='/images/branding/logo.svg' width={130} height={130} alt="Radio Roulette logo" />
       </IntroLogo>
       <IntroText>
-        Welcome to radioroulette.uk! The game is simple - spin the wheel to discover a random radio station from around the UK. Who knows, it could become the new soundtrack to your day.
+        Welcome to Radio Roulette! The game is simple - spin the wheel to discover a random radio station from around the UK. Who knows, it could become the new soundtrack to your day.
       </IntroText>
     </IntroContainer>
   )
