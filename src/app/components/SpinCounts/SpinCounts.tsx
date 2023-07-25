@@ -46,9 +46,6 @@ export default function SpinCounts() {
     data,
   } = useSpins();
 
-  const [dailyCountBase, setDailyCountBase] = useState(0);
-  const [totalCountBase, setTotalCountBase] = useState(0);
-
   return (
     <div style={{ display: 'flex' }}>
       <DesktopSpinCount>
@@ -56,10 +53,10 @@ export default function SpinCounts() {
         <SpinCountDisplay>
           <CountUp
             isCounting
-            start={dailyCountBase}
+            start={0}
             end={data?.daily}
             duration={1}
-            onComplete={() => setDailyCountBase(data?.daily ?? 0)}
+            thousandsSeparator=','
           />
         </SpinCountDisplay>
       </DesktopSpinCount>
@@ -68,10 +65,10 @@ export default function SpinCounts() {
         <SpinCountDisplay>
           <CountUp
             isCounting
-            start={totalCountBase}
+            start={0}
             end={data?.total}
             duration={1.5}
-            onComplete={() => setTotalCountBase(data?.total ?? 0)}
+            thousandsSeparator=','
           />
         </SpinCountDisplay>
       </SpinCount>
