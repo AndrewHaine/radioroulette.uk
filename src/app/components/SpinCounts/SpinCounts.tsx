@@ -53,7 +53,7 @@ export default function SpinCounts() {
         <SpinCountLabel>Today</SpinCountLabel>
         <SpinCountDisplay>
           <CountUp
-            isCounting={!error}
+            isCounting={(data?.daily || 0) > 0}
             start={0}
             end={error ? 0 : data?.daily}
             duration={1}
@@ -65,7 +65,7 @@ export default function SpinCounts() {
         <SpinCountLabel>All-time</SpinCountLabel>
         <SpinCountDisplay>
           <CountUp
-            isCounting={!error}
+            isCounting={(data?.total || 0) > 0}
             start={0}
             end={error ? 0 : data?.total}
             duration={1.5}
