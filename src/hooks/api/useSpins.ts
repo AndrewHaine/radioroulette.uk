@@ -1,12 +1,15 @@
-import useSWR from 'swr'
+import useSWR, { Fetcher } from 'swr';
+import { ErrorResponse, SpinCountResponse } from '../../../types/api';
 
-type SpinResponse = {
-  total: number,
-  daily: number,
+const spinCountFetcher: Fetcher<SpinCountResponse> = async () => {
+  const response = await fetch('/api/spins');
+
+  if (!response.ok) {
+    const { error } = await response.json();
+    throw new Error(error);
+  }
+
+  return response.json();
 }
 
-const useSpins = () => useSWR<SpinResponse>('/api/spins', async () => {
-  return fetch('/api/spins').then((value) => value.json());
-});
-
-export default useSpins;
+export const useSpinCounts = () => useSWR<SpinCountResponse, ErrorResponse>('/api/spins', spinCountFetcher);

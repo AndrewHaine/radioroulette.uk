@@ -2,7 +2,7 @@
 
 import { styled } from 'styled-components';
 import { CountUp } from 'use-count-up';
-import useSpins from '@/hooks/api/useSpins';
+import { useSpinCounts } from '@/hooks/api/useSpins';
 import { useState } from 'react';
 
 const SpinCount = styled.div`
@@ -43,8 +43,9 @@ const SpinCountDisplay = styled.div`
 
 export default function SpinCounts() {
   const {
+    error,
     data,
-  } = useSpins();
+  } = useSpinCounts();
 
   return (
     <div style={{ display: 'flex' }}>
@@ -52,9 +53,9 @@ export default function SpinCounts() {
         <SpinCountLabel>Today</SpinCountLabel>
         <SpinCountDisplay>
           <CountUp
-            isCounting
+            isCounting={!error}
             start={0}
-            end={data?.daily}
+            end={error ? 0 : data?.daily}
             duration={1}
             thousandsSeparator=','
           />
@@ -64,9 +65,9 @@ export default function SpinCounts() {
         <SpinCountLabel>All-time</SpinCountLabel>
         <SpinCountDisplay>
           <CountUp
-            isCounting
+            isCounting={!error}
             start={0}
-            end={data?.total}
+            end={error ? 0 : data?.total}
             duration={1.5}
             thousandsSeparator=','
           />
