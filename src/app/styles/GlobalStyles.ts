@@ -36,4 +36,59 @@ export const GlobalStyles = createGlobalStyle`
       width: 100%;
     }
   }
+
+  .ReactModal__Overlay {
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.75) !important;
+    transition: all .3s ease-in-out;
+  }
+
+  .ReactModal__Overlay--after-open{
+    opacity: 1;
+  }
+
+  .ReactModal__Overlay--before-close {
+    opacity: 0;
+  }
+  
+  .ReactModal__Content {
+    left: 50% !important;
+    top: 50% !important;
+    padding: 0 !important;
+    width: 80% !important;
+    height: 80% !important;
+    max-height: 400px;
+    max-width: 400px;
+    overflow: hidden;
+    border: 0 !important;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.75);
+    transition: all .3s ease-in-out;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      content: '';
+      background-color: ${({ theme }) => theme.colours.orange};
+    }
+
+    &[id="error-modal"] {
+      &::before {
+        background-color: #F15353;
+      }
+    }
+  }
+
+  .ReactModal__Content--after-open {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  .ReactModal__Content--before-close {
+    transform: translate(-50%, -50%) scale(.75);
+    opacity: 0;
+  }
 `;

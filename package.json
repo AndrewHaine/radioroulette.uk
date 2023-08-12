@@ -22,12 +22,14 @@
     "next": "13.4.10",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-modal": "^3.16.1",
     "styled-components": "^6.0.4",
     "swr": "^2.2.0",
     "typescript": "5.1.6",
     "use-count-up": "^3.0.1"
   },
   "devDependencies": {
+    "@types/react-modal": "^3.16.0",
     "csv-parse": "^5.4.0",
     "csv-stringify": "^6.4.0",
     "csv-writer": "^1.6.0",

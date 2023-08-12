@@ -54,7 +54,7 @@ export async function POST() {
     const spinResults: Station[] = await prisma.$queryRaw`
       SELECT * FROM "public"."Station"
       ORDER BY RANDOM()
-      LIMIT 6
+      LIMIT 8
     `;
 
     const winningStation = spinResults[0];

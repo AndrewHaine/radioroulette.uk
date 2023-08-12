@@ -12,4 +12,6 @@ const spinCountFetcher: Fetcher<SpinCountResponse> = async () => {
   return response.json();
 }
 
-export const useSpinCounts = () => useSWR<SpinCountResponse, ErrorResponse>('/api/spins', spinCountFetcher);
+const useSpinCounts = () => useSWR<SpinCountResponse, ErrorResponse>('/api/spins', spinCountFetcher);
+
+export default useSpinCounts;

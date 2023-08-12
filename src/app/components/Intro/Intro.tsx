@@ -54,7 +54,7 @@ export default function Intro() {
         <Image src='/images/branding/logo.svg' width={130} height={130} alt="Radio Roulette logo" />
       </IntroLogo>
       <IntroText>
-        Welcome to Radio Roulette! The game is simple - spin the wheel to discover a random radio station from around the UK. Who knows, it could become the new soundtrack to your day.
+        Welcome to Radio Roulette!<br />The game is simple - spin the wheel to discover a random radio station from around the UK. Who knows, it could become the new soundtrack to your day.
       </IntroText>
     </IntroContainer>
   )

@@ -1,3 +1,5 @@
+import { Station } from '@prisma/client';
+
 export type ErrorMessage = 'rate_limit' | 'server';
 
 export type ErrorResponse = {
@@ -8,3 +10,7 @@ export type SpinCountResponse = {
   total: number,
   daily: number,
 };
+
+export type SpinCreatedResponse = {
+  stations: Station[],
+}

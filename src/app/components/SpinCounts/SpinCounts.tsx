@@ -2,8 +2,8 @@
 
 import { styled } from 'styled-components';
 import { CountUp } from 'use-count-up';
-import { useSpinCounts } from '@/hooks/api/useSpins';
-import { useState } from 'react';
+import useSpinCounts from '@/hooks/api/useSpinCounts';
+import { useEffect } from 'react';
 
 const SpinCount = styled.div`
   display: flex;
@@ -45,7 +45,16 @@ export default function SpinCounts() {
   const {
     error,
     data,
+    mutate,
   } = useSpinCounts();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      mutate()
+    }, 5000);
+
+    () => clearInterval(interval);
+  }, [mutate]);
 
   return (
     <div style={{ display: 'flex' }}>
