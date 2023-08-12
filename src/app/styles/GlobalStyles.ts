@@ -27,6 +27,8 @@ export const GlobalStyles = createGlobalStyle`
   body {
     display: flex;
     flex-direction: column;
+    width: 100vw;
+    overflow-x: hidden;
     min-height: 100vh;
     background: radial-gradient(ellipse at 50% 460px, #21112e 30%, #17151a);
   }

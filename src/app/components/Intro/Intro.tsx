@@ -39,8 +39,12 @@ const IntroLogo = styled.figure`
 `;
 
 const IntroText = styled.p`
-  font-size: 1.4rem;
+  font-size: 1.15rem;
   font-weight: 300;
+
+  @media screen and (min-width: 560px) {
+    font-size: 1.4rem;
+  }
 
   @media screen and (min-width: 768px) {
     font-size: 1.625rem;

@@ -47,11 +47,15 @@ const WheelCanvas = styled.canvas<WheelCanvasProps>`
   position: relative;
   display: ${({ $visible }) => $visible ? 'inline-block' : 'none'};
   background-color: ${({ theme }) => theme.colours.greyDark};
-  border: 40px solid ${({ theme }) => theme.colours.purpleLight};
+  border: 20px solid ${({ theme }) => theme.colours.purpleLight};
   border-radius: 50%;
   width: 90%;
   max-width: 1000px;
   margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    border-width: 40px;
+  }
 
   ${({ $status }) => {
     if ($status === 'idle') {
