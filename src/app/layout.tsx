@@ -4,6 +4,7 @@ import StyledWrapper from './styles/StyledWrapper';
 import Header from './components/Header/Header';
 import { BodyContent } from './styles/Layout';
 import Footer from './components/Footer/Footer';
+import Fathom from './components/Fathom/Fathom';
 
 export const metadata: Metadata = {
   title: 'Radio Roulette',
@@ -34,6 +35,7 @@ export default function RootLayout({
         <meta name="csrf-token" content={csrfToken} />
       </head>
       <body>
+        <Fathom />
         <StyledWrapper>
           <Header />
           <BodyContent>

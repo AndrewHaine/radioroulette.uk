@@ -53,6 +53,7 @@ export default function SpinModal(props: SpinModalProps) {
       isOpen={isOpen}
       onRequestClose={onCloseSignal}
       closeTimeoutMS={300}
+      ariaHideApp={false}
     >
       <ModalContent>
         {

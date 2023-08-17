@@ -12,6 +12,7 @@ import SpinModal from './components/SpinModal/SpinModal';
 import ErrorModal from './components/ErrorModal/ErrorModal';
 import { ErrorMessage } from '../../types/api';
 import { SiteWidth } from './styles/Layout';
+import { trackGoal } from 'fathom-client';
 
 const Content = styled.div`
   display: flex;
@@ -39,6 +40,8 @@ export default function Home() {
     if (spinInProgress) {
       return;
     }
+
+    trackGoal('GPAG4ZRN', 0);
 
     const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
 

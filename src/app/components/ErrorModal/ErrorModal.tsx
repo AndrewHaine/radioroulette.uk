@@ -41,6 +41,7 @@ export default function ErrorModal(props: ErrorModalProps) {
       onRequestClose={onCloseSignal}
       closeTimeoutMS={300}
       id='error-modal'
+      ariaHideApp={false}
     >
       <ModalContent>
         <Title>Uh oh!</Title>
