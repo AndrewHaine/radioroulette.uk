@@ -8,6 +8,17 @@ import Footer from './components/Footer/Footer';
 export const metadata: Metadata = {
   title: 'Radio Roulette',
   description: 'Welcome to radioroulette.uk! The game is simple - spin the wheel to discover a random radio station from around the UK. Who knows, it could become the new soundtrack to your day.',
+  openGraph: {
+    type: 'website',
+    'siteName': 'Radio Roulette',
+    'url': 'https://radioroulette.uk',
+    'images': [
+      '/images/og-image.png'
+    ],
+  },
+  twitter: {
+    'card': 'summary',
+  }
 };
 
 export default function RootLayout({
