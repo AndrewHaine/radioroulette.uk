@@ -43,15 +43,18 @@ export default function Home() {
 
     trackGoal('GPAG4ZRN', 0);
 
-    const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+    const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') ?? 'missing';
 
     setSpinInProgress(true);
     setStations([]);
     setWheelStatus('spinning');
 
+    const fetchHeaders = new Headers();
+    fetchHeaders.set('X-CSRF-TOKEN', csrfToken);
+
     const response = await fetch('/api/spins', {
       method: 'POST',
-      body: JSON.stringify({ 'csrf_token': csrfToken }),
+      headers: fetchHeaders,
     });
 
     if (!response.ok) {
