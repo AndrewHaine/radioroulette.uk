@@ -51,7 +51,7 @@ export default function Home() {
 
     const response = await fetch('/api/spins', {
       method: 'POST',
-      body: JSON.stringify({ "": csrfToken }),
+      body: JSON.stringify({ csrfToken }),
     });
 
     if (!response.ok) {
