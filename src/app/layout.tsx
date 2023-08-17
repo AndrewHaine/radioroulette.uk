@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { headers } from 'next/headers';
 import StyledWrapper from './styles/StyledWrapper';
 import Header from './components/Header/Header';
 import { BodyContent } from './styles/Layout';
@@ -14,8 +15,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const csrfToken = headers().get('X-CSRF-TOKEN') || 'missing';
+
   return (
     <html lang="en">
+      <head>
+        <meta name="csrf-token" content={csrfToken} />
+      </head>
       <body>
         <StyledWrapper>
           <Header />

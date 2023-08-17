@@ -27,6 +27,10 @@ export default function ErrorModal(props: ErrorModalProps) {
     if (errorCode === 'rate_limit') {
       return 'You\'ve made too many spins, please come back later!';
     }
+    
+    if (errorCode === 'csrf') {
+      return 'You are not allowed to make that request.';
+    }
 
     return 'An error occurred on our end, please try again later.'
   }

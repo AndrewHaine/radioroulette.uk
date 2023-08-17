@@ -40,12 +40,15 @@ export default function Home() {
       return;
     }
 
+    const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+
     setSpinInProgress(true);
     setStations([]);
     setWheelStatus('spinning');
 
     const response = await fetch('/api/spins', {
       method: 'POST',
+      body: JSON.stringify({ "": csrfToken }),
     });
 
     if (!response.ok) {

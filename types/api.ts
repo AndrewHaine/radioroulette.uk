@@ -1,6 +1,6 @@
 import { Station } from '@prisma/client';
 
-export type ErrorMessage = 'rate_limit' | 'server';
+export type ErrorMessage = 'csrf' | 'rate_limit' | 'server';
 
 export type ErrorResponse = {
   message: ErrorMessage,

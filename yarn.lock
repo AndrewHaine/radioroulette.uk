@@ -2114,6 +2114,11 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
 
+edge-csrf@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/edge-csrf/-/edge-csrf-1.0.4.tgz#338377f0a77f5591d79784bb423e13e02e9d568c"
+  integrity sha512-h8TQ8kCchUNx1HC/hYed6YlHxup/uCnWRRPgadZ7BHFrrE1LQs59tTyZgtOBMOfeKBOhurSyQAINIdO2OL2U9g==
+
 electron-to-chromium@^1.4.477:
   version "1.4.495"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.495.tgz#d72d2eddc05d07c538275a00f2619b113848bff6"

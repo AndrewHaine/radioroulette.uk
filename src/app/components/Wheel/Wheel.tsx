@@ -122,8 +122,6 @@ export default function Wheel(props: WheelProps) {
       });
 
     };
-
-    console.log(wheelSegments[0]);
     
     loadWheel(ctx, wheelSegments);
   }, [canvasLoaded, stations]);
