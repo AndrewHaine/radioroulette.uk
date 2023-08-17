@@ -39,6 +39,65 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
+  h1,
+  h2 {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.3rem;
+    font-size: 1.75rem;
+    font-weight: bold;
+    letter-spacing: 1.1px;
+
+    &::after {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      opacity: .2;
+      content: '';
+      background: white;
+    }
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  @media screen and (min-width: 980px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+
+  h2 {
+    font-size: 1.7rem;
+  }
+
+  p {
+    display: block;
+    position: relative;
+    line-height: 1.2;
+
+    &:not(:last-child) {
+      margin-bottom: 1.5em;
+    }
+  }
+
+  ul {
+    margin: 1em 0 2.5rem;
+    padding: 0 1em;
+    list-style: disc;
+
+    li {
+      &:not(:last-child) {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
   .ReactModal__Overlay {
     opacity: 0;
     background-color: rgba(0, 0, 0, 0.75) !important;

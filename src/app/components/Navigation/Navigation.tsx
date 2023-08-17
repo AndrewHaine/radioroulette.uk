@@ -7,6 +7,7 @@ import { lighten } from 'polished';
 const NavMenu = styled.ul`
   display: flex;
   align-items: center;
+  margin: 0;
 `
 
 const NavItem = styled.li`

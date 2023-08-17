@@ -23,8 +23,20 @@ const FooterInner = styled(SiteWidth)`
   justify-content: space-between;
   flex-direction: column;
 
+  p {
+    margin: 0;
+
+    &:not(:last-child) {
+      margin: 0 0 .5rem;
+    }
+  }
+
   @media screen and (min-width: 768px) {
     flex-direction: row;
+
+    p:not(:last-child) {
+      margin: 0;
+    }
   }
 `;
 

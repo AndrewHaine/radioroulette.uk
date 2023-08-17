@@ -11,6 +11,7 @@ import Button from './components/Button/Button';
 import SpinModal from './components/SpinModal/SpinModal';
 import ErrorModal from './components/ErrorModal/ErrorModal';
 import { ErrorMessage } from '../../types/api';
+import { SiteWidth } from './styles/Layout';
 
 const Content = styled.div`
   display: flex;
@@ -74,30 +75,32 @@ export default function Home() {
   }
 
   return (
-    <Content>
-      <SpinModal
-        isOpen={resultModalOpen}
-        station={stations[0]}
-        onCloseSignal={() => setResultModalOpen(false)}
-      />
-      <ErrorModal
-        isOpen={errorModalOpen}
-        errorCode={errorCode}
-        onCloseSignal={() => setErrorModalOpen(false)}
-      />
-      <Intro />
-      <GameActions>
-        <Button
-          colour='orange'
-          text='Spin the wheel'
-          disabled={!spinInProgress}
-          onClick={spin}
+    <SiteWidth>
+      <Content>
+        <SpinModal
+          isOpen={resultModalOpen}
+          station={stations[0]}
+          onCloseSignal={() => setResultModalOpen(false)}
         />
-      </GameActions>
-      <Wheel
-        status={wheelStatus}
-        stations={stations}
-      />
-    </Content>
+        <ErrorModal
+          isOpen={errorModalOpen}
+          errorCode={errorCode}
+          onCloseSignal={() => setErrorModalOpen(false)}
+        />
+        <Intro />
+        <GameActions>
+          <Button
+            colour='orange'
+            text='Spin the wheel'
+            disabled={!spinInProgress}
+            onClick={spin}
+          />
+        </GameActions>
+        <Wheel
+          status={wheelStatus}
+          stations={stations}
+        />
+      </Content>
+    </SiteWidth>
   )
 }
