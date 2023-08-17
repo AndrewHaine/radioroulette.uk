@@ -36,6 +36,10 @@ export default function Home() {
   const { mutate } = useSWRConfig();
 
   const spin = async () => {
+    if (spinInProgress) {
+      return;
+    }
+
     setSpinInProgress(true);
     setStations([]);
     setWheelStatus('spinning');

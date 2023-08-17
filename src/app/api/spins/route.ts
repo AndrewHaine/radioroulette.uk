@@ -37,7 +37,7 @@ export async function GET() {
 };
 
 export async function POST() {
-  const { isRateLimited, headers } = await RateLimiter.check(10, 'RATE_LIMIT_TOKEN');
+  const { isRateLimited, headers } = await RateLimiter.check(100, 'RATE_LIMIT_TOKEN');
 
   if (isRateLimited) {
     const errorResponse: ErrorResponse = {
