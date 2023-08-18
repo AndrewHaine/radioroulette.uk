@@ -2,8 +2,11 @@ import { prisma } from '@/db';
 import rateLimit from '@/services/rate-limiter';
 import { Station } from '@prisma/client';
 import { startOfDay } from 'date-fns';
+import cache from 'memory-cache';
 import { NextResponse } from 'next/server';
 import { ErrorResponse } from '../../../../types/api';
+
+const SPIN_COUNT_CACHE_KEY = 'spins';
 
 const RateLimiter = rateLimit({
   interval: 60 * 1000,
@@ -12,18 +15,29 @@ const RateLimiter = rateLimit({
 
 export async function GET() {
   try {
-    const total = await prisma.spin.count();
-    const daily = await prisma.spin.count({
-      where: {
-        date: {
-          gte: startOfDay(new Date()),
-        },
-      },
-    });
+    let data = cache.get(SPIN_COUNT_CACHE_KEY);
+    let cacheStatus = 'HIT';
 
-    return NextResponse.json({
-      total,
-      daily,
+    if (!data) {
+      cacheStatus = 'MISS';
+
+      const total = await prisma.spin.count();
+      const daily = await prisma.spin.count({
+        where: {
+          date: {
+            gte: startOfDay(new Date()),
+          },
+        },
+      });
+
+      data = { total, daily };
+      cache.put(SPIN_COUNT_CACHE_KEY, data);
+    }
+
+    return NextResponse.json(data, {
+      headers: {
+        'X-COUNT-CACHE': cacheStatus,
+      }
     });
   } catch (e) {
     const errorResponse: ErrorResponse = {
@@ -64,6 +78,8 @@ export async function POST() {
         stationId: winningStation.id,
       }
     });
+
+    cache.del(SPIN_COUNT_CACHE_KEY);
 
     return NextResponse.json(spinResults, { headers });
   } catch (e) {
